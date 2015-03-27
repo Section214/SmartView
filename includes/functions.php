@@ -72,7 +72,11 @@ function smartview_parse_title_tags( $content ) {
 
     // Ensure at least one tag exists
     if( strpos( $content, '{' ) !== false ) {
-        $title = ( isset( $wp_query->queried_object->post_title ) ? $wp_query->queried_object->post_title : '' );
+        if( is_single() && isset( $wp_query->queried_object->post_title ) ) {
+            $title = $wp_query->queried_object->post_title;
+        } else {
+            $title = '';
+        }
 
         $content = str_replace( '{title}', $title, $content );
         $content = str_replace( '{sitename}', get_bloginfo( 'name' ), $content );
