@@ -30,6 +30,6 @@ class Test_Misc extends WP_UnitTestCase {
 
     public function test_check_sameorigin() {
         $this->assertTrue( smartview_check_sameorigin( 'http://google.com' ) );
-        $this->assertFalse( smartview_check_sameorigin( 'http://wordpress.org' ) );
+        $this->assertFalse( smartview_check_sameorigin( 'http://ketv.com' ) );
     }
 }
