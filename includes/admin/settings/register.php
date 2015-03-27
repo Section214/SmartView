@@ -73,6 +73,18 @@ function smartview_get_registered_settings() {
                     'example5'  => __( 'Framed', 'smartview' )
                 ),
                 'std'       => 'example4'
+            ),
+            array(
+                'id'        => 'modal_effect',
+                'name'      => __( 'Transition Effect', 'smartview' ),
+                'desc'      => __( 'Select the effect to use on modal window open/close', 'smartview' ),
+                'type'      => 'select',
+                'options'   => array(
+                    'none'      => __( 'None', 'smartview' ),
+                    'elastic'   => __( 'Elastic', 'smartview' ),
+                    'fade'      => __( 'Fade', 'smartview' )
+                ),
+                'std'       => 'none'
             )
         ) )
     );

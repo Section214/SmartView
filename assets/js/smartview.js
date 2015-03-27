@@ -22,6 +22,7 @@ jQuery(document).ready(function ($) {
             width: '80%',
             height: '80%',
             fixed: true,
+            transition: smartview_vars.modal_effect
         });
 
     }

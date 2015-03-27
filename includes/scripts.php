@@ -55,14 +55,18 @@ add_action( 'admin_enqueue_scripts', 'smartview_admin_scripts', 100 );
 function smartview_scripts() {
     // Use minified libraries if SCRIPT_DEBUG is turned off
     $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-    $theme  = smartview_get_option( 'modal_theme', 'example4' );
+
+    // Get options
+    $modal_theme    = smartview_get_option( 'modal_theme', 'example4' );
+    $modal_effect   = smartview_get_option( 'modal_effect', 'none' );
 
     wp_enqueue_script( 'smartview-mobile', SMARTVIEW_URL . 'assets/js/isMobile.js', array( 'jquery' ), '0.3.6' );
-    wp_enqueue_style( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/' . $theme . '/colorbox.css', array(), '1.6.0' );
+    wp_enqueue_style( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/' . $modal_theme . '/colorbox.css', array(), '1.6.0' );
     wp_enqueue_script( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/jquery.colorbox-min.js', array( 'jquery' ), '1.6.0' );
     wp_enqueue_style( 'smartview', SMARTVIEW_URL . 'assets/css/smartview' . $suffix . '.css', array(), SMARTVIEW_VER );
     wp_enqueue_script( 'smartview', SMARTVIEW_URL . 'assets/js/smartview' . $suffix . '.js', array(), SMARTVIEW_VER );
     wp_localize_script( 'smartview', 'smartview_vars', array(
+        'modal_effect'  => $modal_effect
     ) );
 }
 add_action( 'wp_enqueue_scripts', 'smartview_scripts' );
