@@ -64,6 +64,7 @@ function smartview_get_title_tags() {
  *
  * @since       1.0.0
  * @param       string $content The content to parse
+ * @global      object $wp_query The WordPress query object
  * @return      string $content The content with tags parsed
  */
 function smartview_parse_title_tags( $content ) {
@@ -71,7 +72,9 @@ function smartview_parse_title_tags( $content ) {
 
     // Ensure at least one tag exists
     if( strpos( $content, '{' ) !== false ) {
-        $content = str_replace( '{title}', $wp_query->queried_object->post_title, $content );
+        $title = ( isset( $wp_query->queried_object->post_title ) ? $wp_query->queried_object->post_title : '' );
+
+        $content = str_replace( '{title}', $title, $content );
         $content = str_replace( '{sitename}', get_bloginfo( 'name' ), $content );
     }
     
