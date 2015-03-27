@@ -1,0 +1,69 @@
+# Copyright (C) 2015 SmartView
+# This file is distributed under the same license as the SmartView package.
+msgid ""
+msgstr ""
+"Project-Id-Version: SmartView 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/SmartView\n"
+"POT-Creation-Date: 2015-03-27 01:24:07+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/admin/pages.php:24
+msgid "SmartView Settings"
+msgstr ""
+
+#. #-#-#-#-#  smartview.pot (SmartView 1.0.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: includes/admin/pages.php:24
+msgid "SmartView"
+msgstr ""
+
+#: includes/admin/settings/register.php:24
+msgid "General"
+msgstr ""
+
+#: includes/admin/settings/register.php:42
+msgid "General Settings"
+msgstr ""
+
+#: includes/admin/settings/register.php:198
+msgid "Settings updated."
+msgstr ""
+
+#: includes/admin/settings/register.php:558
+msgid "Upload File"
+msgstr ""
+
+#: includes/admin/settings/register.php:585
+msgid ""
+"The callback function used for the <strong>%s</strong> setting is missing."
+msgstr ""
+
+#: includes/scripts.php:42
+msgid "Insert Image"
+msgstr ""
+
+#: includes/scripts.php:43
+msgid "Select Image"
+msgstr ""
+
+#. #-#-#-#-#  smartview.pot (SmartView 1.0.0)  #-#-#-#-#
+#. Plugin URI of the plugin/theme
+#. #-#-#-#-#  smartview.pot (SmartView 1.0.0)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://section214.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Provides a simple, mobile-friendly solution for displaying external content "
+"without leaving a site"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Daniel J Griffiths"
+msgstr ""
