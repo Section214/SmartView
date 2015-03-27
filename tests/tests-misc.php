@@ -27,4 +27,9 @@ class Test_Misc extends WP_UnitTestCase {
 
         $this->assertEquals( $parsed_content, smartview_parse_title_tags( $content ) );
     }
+
+    public function test_check_sameorigin() {
+        $this->assertTrue( smartview_check_sameorigin( 'http://google.com' ) );
+        $this->assertFalse( smartview_check_sameorigin( 'http://wordpress.org' ) );
+    }
 }
