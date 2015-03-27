@@ -85,6 +85,16 @@ function smartview_get_registered_settings() {
                     'fade'      => __( 'Fade', 'smartview' )
                 ),
                 'std'       => 'none'
+            ),
+            array(
+                'id'        => 'modal_speed',
+                'name'      => __( 'Transition Speed', 'smartview' ),
+                'desc'      => __( 'Set the speed of the modal elastic and fade transitions in milliseconds (default: 350)', 'smartview' ),
+                'type'      => 'number',
+                'size'      => 'small',
+                'min'       => 1,
+                'step'      => 1,
+                'std'       => 350
             )
         ) )
     );
