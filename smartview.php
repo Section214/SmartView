@@ -132,6 +132,22 @@ if( ! class_exists( 'SmartView' ) ) {
                 return $content;
             }
 
+            // Get html content
+            $html = str_get_html( $content );
+
+            // What ISN'T an external domain?
+            $domain = get_home_url();
+
+            // Do the magic!
+            foreach( $html->find( 'a' ) as $link ) {
+                if( ! preg_match( '/^.*' . preg_quote( $domain, '/' ) . '.*/i', $link->href ) ) {
+                    // Do stuff
+                }
+            }
+
+            // Reset the content variable
+            $content = $html;
+
             return $content;
         }
 
