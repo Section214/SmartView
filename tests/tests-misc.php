@@ -23,7 +23,7 @@ class Test_Misc extends WP_UnitTestCase {
 
     public function test_parse_title_tags() {
         $content = 'Test {sitename}';
-        $parsed_content = 'Test sitename';
+        $parsed_content = 'Test Test Blog';
 
         $this->assertEquals( $parsed_content, smartview_parse_title_tags( $content ) );
     }
