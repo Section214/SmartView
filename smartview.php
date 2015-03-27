@@ -141,7 +141,13 @@ if( ! class_exists( 'SmartView' ) ) {
             // Do the magic!
             foreach( $html->find( 'a' ) as $link ) {
                 if( ! preg_match( '/^.*' . preg_quote( $domain, '/' ) . '.*/i', $link->href ) ) {
-                    // Do stuff
+                    if( isset( $link->class ) ) {
+                        if( ! strpos( $link->class, 'smartview' ) ) {
+                            $link->class = $link->class . ' smartview';
+                        }
+                    } else {
+                        $link->class = 'smartview';
+                    }
                 }
             }
 
