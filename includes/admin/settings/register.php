@@ -43,6 +43,13 @@ function smartview_get_registered_settings() {
                 'desc'      => '',
                 'type'      => 'header'
             ),
+            array(
+                'id'        => 'apply_on',
+                'name'      => __( 'Apply SmartView On', 'smartview' ),
+                'desc'      => __( 'Select the content types to use SmartView on', 'smartview' ),
+                'type'      => 'multicheck',
+                'options'   => smartview_get_types()
+            )
         ) ),
     );
 

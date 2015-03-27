@@ -109,6 +109,30 @@ if( ! class_exists( 'SmartView' ) ) {
          * @return      void
          */
         private function hooks() {
+            // Maybe add SmartView
+            add_filter( 'the_content', array( $this, 'maybe_add_smartview' ), PHP_INT_MAX, 1 );
+        }
+
+
+        /**
+         * Maybe add SmartView to pages/posts
+         *
+         * @access      public
+         * @since       1.0.0
+         * @param       string $content The page/post content
+         * @global      object $post The WordPress object for this post/page
+         * @return      string $content The modified content
+         */
+        public function maybe_add_smartview( $content ) {
+            global $post;
+
+            // Bail if we shouldn't apply here
+            $apply_on = smartview_get_option( 'apply_on', false );
+            if( ! array_key_exists( $post->post_type, $apply_on ) ) {
+                return $content;
+            }
+
+            return $content;
         }
 
 
