@@ -23,7 +23,8 @@ jQuery(document).ready(function ($) {
             height: '80%',
             fixed: true,
             transition: smartview_vars.modal_effect,
-            speed: Number(smartview_vars.modal_speed)
+            speed: Number(smartview_vars.modal_speed),
+            title: smartview_vars.modal_title,
         });
     }
 });

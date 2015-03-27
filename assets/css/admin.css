@@ -105,3 +105,21 @@
 .smartview-info-notice.smartview-info-critical {
     border-left: 4px solid #dd3d36;
 }
+
+/* Template tag list styles
+-------------------------------------------------------------- */
+.smartview-tag-list {
+    font-size: .8rem;
+    margin-left: 1rem;
+}
+
+.smartview-tag-list .smartview-tag-list-tag {
+    display: inline-block;
+    width: 7rem;
+    font-weight: bold;
+}
+
+.smartview-tag-list .smartview-tag-list-description {
+    display: inline-block;
+    clear: both;
+}

@@ -47,7 +47,7 @@ function smartview_get_registered_settings() {
             array(
                 'id'        => 'apply_on',
                 'name'      => __( 'Apply SmartView On', 'smartview' ),
-                'desc'      => __( 'Select the content types to use SmartView on', 'smartview' ),
+                'desc'      => __( 'Select the content types to use SmartView on.', 'smartview' ),
                 'type'      => 'multicheck',
                 'options'   => smartview_get_types()
             )
@@ -63,7 +63,7 @@ function smartview_get_registered_settings() {
             array(
                 'id'        => 'modal_theme',
                 'name'      => __( 'Modal Theme', 'smartview' ),
-                'desc'      => __( 'Select the modal window theme to use', 'smartview' ),
+                'desc'      => __( 'Select the modal window theme to use.', 'smartview' ),
                 'type'      => 'select',
                 'options'   => array(
                     'example1'  => __( 'Elegant', 'smartview' ),
@@ -77,7 +77,7 @@ function smartview_get_registered_settings() {
             array(
                 'id'        => 'modal_effect',
                 'name'      => __( 'Transition Effect', 'smartview' ),
-                'desc'      => __( 'Select the effect to use on modal window open/close', 'smartview' ),
+                'desc'      => __( 'Select the effect to use on modal window open/close.', 'smartview' ),
                 'type'      => 'select',
                 'options'   => array(
                     'none'      => __( 'None', 'smartview' ),
@@ -89,12 +89,25 @@ function smartview_get_registered_settings() {
             array(
                 'id'        => 'modal_speed',
                 'name'      => __( 'Transition Speed', 'smartview' ),
-                'desc'      => __( 'Set the speed of the modal elastic and fade transitions in milliseconds (default: 350)', 'smartview' ),
+                'desc'      => __( 'Set the speed of the modal elastic and fade transitions in milliseconds. (default: 350)', 'smartview' ),
                 'type'      => 'number',
                 'size'      => 'small',
                 'min'       => 1,
                 'step'      => 1,
                 'std'       => 350
+            ),
+            array(
+                'id'        => 'modal_branding_settings',
+                'name'      => __( 'Branding Settings', 'smartview' ),
+                'desc'      => '',
+                'type'      => 'header'
+            ),
+            array(
+                'id'        => 'modal_title',
+                'name'      => __( 'Modal Window Title', 'smartview' ),
+                'desc'      => __( 'Specify a custom title for the modal window. HTML is accepted.', 'smartview' ) . '<br />' . __( 'Available template tags:', 'smartview' ) . '<br />' . smartview_get_title_tags(),
+                'type'      => 'text',
+                'std'       => __( 'Brought to you by', 'smartview' ) . ' {sitename}'
             )
         ) )
     );

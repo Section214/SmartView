@@ -66,7 +66,8 @@ function smartview_scripts() {
     wp_enqueue_script( 'smartview', SMARTVIEW_URL . 'assets/js/smartview' . $suffix . '.js', array(), SMARTVIEW_VER );
     wp_localize_script( 'smartview', 'smartview_vars', array(
         'modal_effect'  => smartview_get_option( 'modal_effect', 'none' ),
-        'modal_speed'   => smartview_get_option( 'modal_speed', 350 )
+        'modal_speed'   => smartview_get_option( 'modal_speed', 350 ),
+        'modal_title'   => smartview_parse_title_tags( smartview_get_option( 'modal_title', __( 'Brought to you by', 'smartview' ) . ' {sitename}' ) ),
     ) );
 }
 add_action( 'wp_enqueue_scripts', 'smartview_scripts' );
