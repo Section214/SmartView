@@ -124,12 +124,6 @@ function smartview_get_registered_settings() {
                 'std'       => '80%'
             ),
             array(
-                'id'        => 'modal_branding_settings',
-                'name'      => __( 'Branding Settings', 'smartview' ),
-                'desc'      => '',
-                'type'      => 'header'
-            ),
-            array(
                 'id'        => 'modal_title',
                 'name'      => __( 'Modal Window Title', 'smartview' ),
                 'desc'      => __( 'Specify a custom title for the modal window. HTML is accepted.', 'smartview' ) . '<br />' . __( 'Available template tags:', 'smartview' ) . '<br />' . smartview_get_title_tags(),
