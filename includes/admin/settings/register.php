@@ -97,6 +97,17 @@ function smartview_get_registered_settings() {
                 'std'       => 350
             ),
             array(
+                'id'        => 'modal_opacity',
+                'name'      => __( 'Overlay Opacity', 'smartview' ),
+                'desc'      => __( 'Set the opacity of the modal window overlay. (default: .85)', 'smartview' ),
+                'type'      => 'number',
+                'size'      => 'small',
+                'min'       => 0,
+                'max'       => 1,
+                'step'      => 0.01,
+                'std'       => 0.85
+            ),
+            array(
                 'id'        => 'modal_branding_settings',
                 'name'      => __( 'Branding Settings', 'smartview' ),
                 'desc'      => '',

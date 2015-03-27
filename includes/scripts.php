@@ -68,6 +68,7 @@ function smartview_scripts() {
         'modal_effect'  => smartview_get_option( 'modal_effect', 'none' ),
         'modal_speed'   => smartview_get_option( 'modal_speed', 350 ),
         'modal_title'   => smartview_parse_title_tags( smartview_get_option( 'modal_title', __( 'Brought to you by', 'smartview' ) . ' {sitename}' ) ),
+        'modal_opacity' => smartview_get_option( 'modal_opacity', 0.85 ),
     ) );
 }
 add_action( 'wp_enqueue_scripts', 'smartview_scripts' );

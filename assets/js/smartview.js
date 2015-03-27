@@ -25,6 +25,7 @@ jQuery(document).ready(function ($) {
             transition: smartview_vars.modal_effect,
             speed: Number(smartview_vars.modal_speed),
             title: smartview_vars.modal_title,
+            opacity: Number(smartview_vars.modal_opacity),
         });
     }
 });
