@@ -50,6 +50,19 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Select the content types to use SmartView on.', 'smartview' ),
                 'type'      => 'multicheck',
                 'options'   => smartview_get_types()
+            ),
+            array(
+                'id'        => 'sameorigin_fallback',
+                'name'      => __( 'Sameorigin Fallback', 'smartview' ),
+                'desc'      => __( 'Gracefully fallback to opening in a new tab instead of failing if modal access is disallowed.', 'smartview' ),
+                'type'      => 'checkbox'
+            ),
+            array(
+                'id'        => 'modal_error',
+                'name'      => __( 'Content Error', 'smartview' ),
+                'desc'      => __( 'Specify the message to display if a content loading error occurs.', 'smartview' ),
+                'type'      => 'text',
+                'std'       => __( 'Unfortunately, an error occurred. Please try again.', 'smartview' )
             )
         ) ),
         // Modal Styles

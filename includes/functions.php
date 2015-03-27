@@ -80,3 +80,33 @@ function smartview_parse_title_tags( $content ) {
     
     return $content;
 }
+
+
+/**
+ * Check to see if X-Frame-Option is set to SAMEORIGIN for a given site
+ *
+ * @since       1.0.0
+ * @param       string $url The URL to check
+ * @return      bool $ret True if SAMEORIGIN, false otherwise
+ */
+function smartview_check_sameorigin( $url = '' ) {
+    $ret = false;
+
+    $args = array(
+        'timeout'   => 5,
+        'sslverify' => false
+    );
+
+    $response = wp_remote_get( $url, $args );
+    $response = wp_remote_retrieve_headers( $response );
+
+    if( array_key_exists( 'x-frame-options', $response ) ) {
+        if( strtolower( $response['x-frame-options'] ) == 'deny' ) {
+            $ret = true;
+        } elseif( strtolower( $response['x-frame-options'] ) == 'sameorigin' ) {
+            $ret = true;
+        }
+    }
+
+    return $ret;
+}

@@ -141,12 +141,26 @@ if( ! class_exists( 'SmartView' ) ) {
             // Do the magic!
             foreach( $html->find( 'a' ) as $link ) {
                 if( ! preg_match( '/^.*' . preg_quote( $domain, '/' ) . '.*/i', $link->href ) ) {
-                    if( isset( $link->class ) ) {
-                        if( ! strpos( $link->class, 'smartview' ) ) {
-                            $link->class = $link->class . ' smartview';
+                    if( smartview_check_sameorigin( $link->href ) ) {
+                        if( smartview_get_option( 'sameorigin_fallback', false ) ) {
+                            $link->target = '_blank';
+                        } else {
+                            if( isset( $link->class ) ) {
+                                if( ! strpos( $link->class, 'smartview-error' ) ) {
+                                    $link->class = $link->class . ' smartview-error';
+                                }
+                            } else {
+                                $link->class = 'smartview-error';
+                            }
                         }
                     } else {
-                        $link->class = 'smartview';
+                        if( isset( $link->class ) ) {
+                            if( ! strpos( $link->class, 'smartview' ) ) {
+                                $link->class = $link->class . ' smartview';
+                            }
+                        } else {
+                            $link->class = 'smartview';
+                        }
                     }
                 }
             }

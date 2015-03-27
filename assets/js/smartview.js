@@ -27,5 +27,13 @@ jQuery(document).ready(function ($) {
             title: smartview_vars.modal_title,
             opacity: Number(smartview_vars.modal_opacity),
         });
+
+        $('.smartview-error').colorbox({
+            html: smartview_vars.modal_error,
+            fixed: true,
+            transition: smartview_vars.modal_effect,
+            speed: Number(smartview_vars.modal_speed),
+            opacity: Number(smartview_vars.modal_opacity),
+        });
     }
 });

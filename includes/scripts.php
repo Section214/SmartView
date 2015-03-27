@@ -71,6 +71,7 @@ function smartview_scripts() {
         'modal_opacity' => smartview_get_option( 'modal_opacity', 0.85 ),
         'modal_width'   => smartview_get_option( 'modal_width', '80%' ),
         'modal_height'  => smartview_get_option( 'modal_height', '80%' ),
+        'modal_error'   => smartview_get_option( 'modal_error', __( 'Unfortunately, an error occurred. Please try again.', 'smartview' ) ),
     ) );
 }
 add_action( 'wp_enqueue_scripts', 'smartview_scripts' );
