@@ -89,6 +89,7 @@ if( ! class_exists( 'SmartView' ) ) {
             require_once SMARTVIEW_DIR . 'includes/admin/settings/register.php';
             $smartview_options = smartview_get_settings();
 
+            require_once SMARTVIEW_DIR . 'includes/libraries/simple-html-dom.php';
             require_once SMARTVIEW_DIR . 'includes/scripts.php';
             require_once SMARTVIEW_DIR . 'includes/functions.php';
 
