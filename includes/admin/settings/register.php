@@ -22,6 +22,7 @@ function smartview_get_settings_tabs() {
 
     $tabs               = array();
     $tabs['general']    = __( 'General', 'smartview' );
+    $tabs['modal']      = __( 'Modal Style', 'smartview' );
     
     return apply_filters( 'smartview_settings_tabs', $tabs );
 }
@@ -35,7 +36,7 @@ function smartview_get_settings_tabs() {
  */
 function smartview_get_registered_settings() {
     $smartview_settings = array(
-        // Settings
+        // General Settings
         'general' => apply_filters( 'smartview_settings_general', array(
             array(
                 'id'        => 'general_header',
@@ -51,6 +52,29 @@ function smartview_get_registered_settings() {
                 'options'   => smartview_get_types()
             )
         ) ),
+        // Modal Styles
+        'modal' => apply_filters( 'smartview_settings_modal', array(
+            array(
+                'id'        => 'modal_header',
+                'name'      => __( 'Modal Style Settings', 'smartview' ),
+                'desc'      => '',
+                'type'      => 'header'
+            ),
+            array(
+                'id'        => 'modal_theme',
+                'name'      => __( 'Modal Theme', 'smartview' ),
+                'desc'      => __( 'Select the modal window theme to use', 'smartview' ),
+                'type'      => 'select',
+                'options'   => array(
+                    'example1'  => __( 'Elegant', 'smartview' ),
+                    'example2'  => __( 'Light', 'smartview' ),
+                    'example3'  => __( 'Dark', 'smartview' ),
+                    'example4'  => __( 'Traditional', 'smartview' ),
+                    'example5'  => __( 'Framed', 'smartview' )
+                ),
+                'std'       => 'example4'
+            )
+        ) )
     );
 
     return apply_filters( 'smartview_registered_settings', $smartview_settings );
