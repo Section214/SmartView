@@ -19,8 +19,8 @@ jQuery(document).ready(function ($) {
     } else {
         $('.smartview').colorbox({
             iframe: true,
-            width: '80%',
-            height: '80%',
+            width: smartview_vars.modal_width,
+            height: smartview_vars.modal_height,
             fixed: true,
             transition: smartview_vars.modal_effect,
             speed: Number(smartview_vars.modal_speed),

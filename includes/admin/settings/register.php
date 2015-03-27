@@ -108,6 +108,22 @@ function smartview_get_registered_settings() {
                 'std'       => 0.85
             ),
             array(
+                'id'        => 'modal_width',
+                'name'      => __( 'Modal Width', 'smartview' ),
+                'desc'      => __( 'Set the width of the modal window in \'px\' or \'%\'. (default: 80%)', 'smartview' ),
+                'type'      => 'text',
+                'size'      => 'small',
+                'std'       => '80%'
+            ),
+            array(
+                'id'        => 'modal_height',
+                'name'      => __( 'Modal Height', 'smartview' ),
+                'desc'      => __( 'Set the height of the modal window in \'px\' or \'%\'. (default: 80%)', 'smartview' ),
+                'type'      => 'text',
+                'size'      => 'small',
+                'std'       => '80%'
+            ),
+            array(
                 'id'        => 'modal_branding_settings',
                 'name'      => __( 'Branding Settings', 'smartview' ),
                 'desc'      => '',
