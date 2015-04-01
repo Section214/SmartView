@@ -144,22 +144,27 @@ if( ! class_exists( 'SmartView' ) ) {
                     if( smartview_check_sameorigin( $link->href ) ) {
                         if( smartview_get_option( 'sameorigin_fallback', false ) ) {
                             $link->target = '_blank';
+                            $link->rel = 'nofollow';
                         } else {
                             if( isset( $link->class ) ) {
                                 if( ! strpos( $link->class, 'smartview-error' ) ) {
                                     $link->class = $link->class . ' smartview-error';
+                                    $link->rel = 'nofollow';
                                 }
                             } else {
                                 $link->class = 'smartview-error';
+                                $link->rel = 'nofollow';
                             }
                         }
                     } else {
                         if( isset( $link->class ) ) {
                             if( ! strpos( $link->class, 'smartview' ) ) {
                                 $link->class = $link->class . ' smartview';
+                                $link->rel = 'nofollow';
                             }
                         } else {
                             $link->class = 'smartview';
+                            $link->rel = 'nofollow';
                         }
                     }
                 }
