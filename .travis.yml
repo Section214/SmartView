@@ -25,3 +25,6 @@ before_script:
 script:
 - if [[ $TRAVIS_PHP_VERSION = '5.5' && $WP_VERSION = 'latest' && $WP_MULTISITE = '0'
   ]]; then phpunit --coverage-clover=coverage.clover; else phpunit; fi
+notifications:
+  slack:
+    secure: KlAyoUe/nOiWmmSrtMK63oGr19EatK8MtvPuqwxyA1icRLLDrmR6rFzVU10cnUlfQinSNP6OdQQ61aC3gDKAs1irNvynnxchzZBhDDfj9bWrgrCaWjr6uCRe+xe05NhFlyXyxGKRHVvMYw4rKOG5Sla1ddYCIzNthbUI8KhqipY=
