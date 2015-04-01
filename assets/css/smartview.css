@@ -1,2 +1,15 @@
-/* Placeholder
+/* SmartBar frame styles
 -------------------------------------------------------------- */
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden !important;
+}
+
+.smartbar-frame {
+    width: 100vw;
+    display: block;
+    overflow: auto;
+    border: 0;
+}

@@ -150,36 +150,49 @@ if( ! class_exists( 'SmartView' ) ) {
             // What ISN'T an external domain?
             $domain = get_home_url();
 
+            // Should we use the SmartBar?
+            $smartbar = false;
+
+            if( wp_is_mobile() || smartview_get_option( 'desktop_type', 'modal' ) == 'smartbar' ) {
+                $smartbar = true;
+            }
+
             // Do the magic!
             foreach( $html->find( 'a' ) as $link ) {
                 if( ! preg_match( '/^.*' . preg_quote( $domain, '/' ) . '.*/i', $link->href ) ) {
                     if( smartview_check_sameorigin( $link->href ) ) {
                         if( smartview_get_option( 'sameorigin_fallback', false ) ) {
                             $link->target = '_blank';
-                            $link->rel = 'nofollow';
                         } else {
-                            if( isset( $link->class ) ) {
-                                if( ! strpos( $link->class, 'smartview-error' ) ) {
-                                    $link->class = $link->class . ' smartview-error';
-                                    $link->rel = 'nofollow';
-                                }
+                            if( $smartbar ) {
+                                $link->href = $domain . '/smartview?url=' . $link->href;
                             } else {
-                                $link->class = 'smartview-error';
-                                $link->rel = 'nofollow';
+                                if( isset( $link->class ) ) {
+                                    if( ! strpos( $link->class, 'smartview-error' ) ) {
+                                        $link->class = $link->class . ' smartview-error';
+                                    }
+                                } else {
+                                    $link->class = 'smartview-error';
+                                }
                             }
                         }
                     } else {
-                        if( isset( $link->class ) ) {
-                            if( ! strpos( $link->class, 'smartview' ) ) {
-                                $link->class = $link->class . ' smartview';
-                                $link->rel = 'nofollow';
-                            }
+                        if( $smartbar ) {
+                            $link->href = $domain . '/smartview?url=' . $link->href;
                         } else {
-                            $link->class = 'smartview';
-                            $link->rel = 'nofollow';
+                            if( isset( $link->class ) ) {
+                                if( ! strpos( $link->class, 'smartview' ) ) {
+                                    $link->class = $link->class . ' smartview';
+                                }
+                            } else {
+                                $link->class = 'smartview';
+                            }
                         }
                     }
                 }
+
+                // Add nofollow
+                $link->rel = 'nofollow';
             }
 
             // Reset the content variable
@@ -236,6 +249,7 @@ if( ! class_exists( 'SmartView' ) ) {
          *
          * @access      public
          * @since       1.0.0
+         * @global      object $wp_query The WordPress query object
          * @return      void
          */
         public function redirect() {
@@ -245,6 +259,13 @@ if( ! class_exists( 'SmartView' ) ) {
             if( ! isset( $wp_query->query_vars['smartview'] ) ) {
                 return;
             }
+
+            $html  = '<div class="smartbar">';
+            $html .= '</div>';
+
+            echo $html;
+            
+            echo '<script type="text/javascript">document.write(\'<iframe class="smartbar-frame" src="' . $wp_query->query_vars['url'] . '" frameborder="0" noresize="noresize" height="\' + window.innerHeight + \'px"></iframe>\');</script>';
 
             exit;
         }
