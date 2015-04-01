@@ -1,3 +1,12 @@
+/* SmartBar styles
+-------------------------------------------------------------- */
+.smartbar {
+    height: 54px;
+    line-height: 54px;
+    z-index: 100;
+    margin-bottom: 1px;
+}
+
 /* SmartBar frame styles
 -------------------------------------------------------------- */
 html, body {

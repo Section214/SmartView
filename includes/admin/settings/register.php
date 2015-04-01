@@ -23,6 +23,7 @@ function smartview_get_settings_tabs() {
     $tabs               = array();
     $tabs['general']    = __( 'General', 'smartview' );
     $tabs['modal']      = __( 'Modal Style', 'smartview' );
+    $tabs['smartbar']   = __( 'SmartBar Style', 'smartview' );
     
     return apply_filters( 'smartview_settings_tabs', $tabs );
 }
@@ -50,6 +51,17 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Select the content types to use SmartView on.', 'smartview' ),
                 'type'      => 'multicheck',
                 'options'   => smartview_get_types()
+            ),
+            array(
+                'id'        => 'desktop_type',
+                'name'      => __( 'Desktop Type', 'smartview' ),
+                'desc'      => __( 'SmartView always uses the SmartBar on mobile devices, but can use the SmartBar or a modal on desktops.', 'smartview' ),
+                'type'      => 'select',
+                'options'   => array(
+                    'modal'     => __( 'Modal', 'smartview' ),
+                    'smartbar'  => __( 'SmartBar', 'smartview' )
+                ),
+                'std'       => 'modal'
             ),
             array(
                 'id'        => 'sameorigin_fallback',
@@ -148,6 +160,33 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Specify a custom title for the modal window. HTML is accepted.', 'smartview' ) . '<br />' . __( 'Available template tags:', 'smartview' ) . '<br />' . smartview_get_title_tags(),
                 'type'      => 'text',
                 'std'       => __( 'Brought to you by', 'smartview' ) . ' {sitename}'
+            )
+        ) ),
+        // SmartBar Styles
+        'smartbar' => apply_filters( 'smartview_settings_smartbar', array(
+            array(
+                'id'        => 'smartbar_header',
+                'name'      => __( 'SmartBar Style Settings', 'smartview' ),
+                'desc'      => '',
+                'type'      => 'header'
+            ),
+            array(
+                'id'        => 'smartbar_background_type',
+                'name'      => __( 'Background Type', 'smartview' ),
+                'desc'      => __( 'Specify the background type for the SmartBar.', 'smartview' ),
+                'type'      => 'select',
+                'options'   => array(
+                    'color'     => __( 'Color', 'smartview' ),
+                    'image'     => __( 'Image', 'smartview' )
+                ),
+                'std'       => 'color'
+            ),
+            array(
+                'id'        => 'smartbar_background_color',
+                'name'      => __( 'Background Color', 'smartview' ),
+                'desc'      => __( 'Specify the background color for the SmartBar.', 'smartview' ),
+                'type'      => 'color',
+                'std'       => '#333333'
             )
         ) )
     );

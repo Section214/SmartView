@@ -260,7 +260,9 @@ if( ! class_exists( 'SmartView' ) ) {
                 return;
             }
 
-            $html  = '<div class="smartbar">';
+            $styles = 'background-color: ' . smartview_get_option( 'smartbar_background_color', '#333333' ) . ';';
+
+            $html  = '<div class="smartbar" style="' . $styles . '">';
             $html .= '</div>';
 
             echo $html;
