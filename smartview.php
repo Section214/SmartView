@@ -114,6 +114,15 @@ if( ! class_exists( 'SmartView' ) ) {
 
             // Maybe hide admin bar
             add_action( 'init', array( $this, 'maybe_hide_admin_bar' ) );
+
+            // Add rewrite endpoint
+            add_action( 'init', array( $this, 'add_endpoint' ) );
+
+            // Add query var
+            add_filter( 'query_vars', array( $this, 'query_vars' ), -1 );
+
+            // Handle redirect
+            add_action( 'wp_head', array( $this, 'redirect' ) );
         }
 
 
@@ -191,6 +200,53 @@ if( ! class_exists( 'SmartView' ) ) {
             if( smartview_get_option( 'no_admin_bar', false ) ) {
                 add_filter( 'show_admin_bar', '__return_false' );
             }
+        }
+
+
+        /**
+         * Registers a new rewrite endpoint
+         *
+         * @access      public
+         * @since       1.0.0
+         * @param       array $rewrite_rules The existing rewrite rules
+         * @return      void
+         */
+        public function add_endpoint( $rewrite_rules ) {
+            add_rewrite_endpoint( 'smartview', EP_ALL );
+        }
+
+
+        /**
+         * Add our new query var
+         *
+         * @access      public
+         * @since       1.0.0
+         * @param       array $vars The existing query vars
+         * @return      array $vars The updated query vars
+         */
+        public function query_vars( $vars ) {
+            $vars[] = 'url';
+
+            return $vars;
+        }
+
+
+        /**
+         * Listen for the smartview endpoint and handle accordingly
+         *
+         * @access      public
+         * @since       1.0.0
+         * @return      void
+         */
+        public function redirect() {
+            global $wp_query;
+
+            // Bail if this isn't a smartview query
+            if( ! isset( $wp_query->query_vars['smartview'] ) ) {
+                return;
+            }
+
+            exit;
         }
 
 
