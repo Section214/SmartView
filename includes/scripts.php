@@ -35,7 +35,7 @@ function smartview_admin_scripts( $hook ) {
     wp_enqueue_style( 'thickbox' );
     wp_enqueue_script( 'thickbox' );
 
-    wp_enqueue_style( 'smartview-fa', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' );
+    wp_enqueue_style( 'smartview-fa', SMARTVIEW_URL . 'assets/css/font-awesome.min.css', array(), '4.3.0' );
     wp_enqueue_style( 'smartview', SMARTVIEW_URL . 'assets/css/admin' . $suffix . '.css', array(), SMARTVIEW_VER );
     wp_enqueue_script( 'smartview', SMARTVIEW_URL . 'assets/js/admin' . $suffix . '.js', array( 'jquery' ), SMARTVIEW_VER );
     wp_localize_script( 'smartview', 'smartview_vars', array(
