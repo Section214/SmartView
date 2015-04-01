@@ -7,6 +7,12 @@
     margin-bottom: 1px;
 }
 
+.smartbar-logo {
+    max-height: 48px;
+    margin-left: 6px;
+}
+
+
 /* SmartBar frame styles
 -------------------------------------------------------------- */
 html, body {

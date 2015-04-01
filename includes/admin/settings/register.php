@@ -187,7 +187,20 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Specify the background color for the SmartBar.', 'smartview' ),
                 'type'      => 'color',
                 'std'       => '#333333'
-            )
+            ),
+            array(
+                'id'        => 'smartbar_background_image',
+                'name'      => __( 'Background Image', 'smartview' ),
+                'desc'      => __( 'Specify an optional background image for the SmartBar.', 'smartview' ),
+                'type'      => 'upload'
+            ),
+            array(
+                'id'        => 'smartbar_logo',
+                'name'      => __( 'Logo', 'smartview' ),
+                'desc'      => __( 'Specify the logo to display on the SmartBar. Images larger than 48px high will be resized.', 'smartview' ),
+                'type'      => 'upload',
+                'std'       => SMARTVIEW_URL . 'assets/img/logo.png'
+            ),
         ) )
     );
 

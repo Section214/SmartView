@@ -260,9 +260,23 @@ if( ! class_exists( 'SmartView' ) ) {
                 return;
             }
 
-            $styles = 'background-color: ' . smartview_get_option( 'smartbar_background_color', '#333333' ) . ';';
+            $styles = array();
+            $styles[] = 'background-color: ' . smartview_get_option( 'smartbar_background_color', '#333333' ) . ';';
 
-            $html  = '<div class="smartbar" style="' . $styles . '">';
+            if( $background_image = smartview_get_option( 'smartbar_background_image', false ) ) {
+                $styles[] = 'background-image: url( \'' . $background_image . '\' );';
+                $styles[] = 'background-repeat: repeat;';
+            }
+
+            $logo = '';
+            if( $logo_url = smartview_get_option( 'smartbar_logo', SMARTVIEW_URL . 'assets/img/logo.png' ) ) {
+                $logo .= '<div class="smartbar-logo-frame">';
+                $logo .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo"></a>';
+                $logo .= '</div>';
+            }
+
+            $html  = '<div class="smartbar" style="' . implode( ' ', $styles ) . '">';
+            $html .= $logo;
             $html .= '</div>';
 
             echo $html;
