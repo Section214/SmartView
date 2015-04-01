@@ -1,7 +1,8 @@
 /* Fix color picker label alignment
 -------------------------------------------------------------- */
-.smartview-color-picker-label {
+.smartview-color-picker-label label {
     vertical-align: top;
+    line-height: 25px;
 }
 
 
