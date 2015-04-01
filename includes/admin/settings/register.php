@@ -63,6 +63,12 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Specify the message to display if a content loading error occurs.', 'smartview' ),
                 'type'      => 'text',
                 'std'       => __( 'Unfortunately, an error occurred. Please try again.', 'smartview' )
+            ),
+            array(
+                'id'        => 'no_admin_bar',
+                'name'      => __( 'Disable Admin Bar', 'smartview' ),
+                'desc'      => __( 'Disables the frontend admin bar for logged-in users. The admin bar can cause issues with the SmartBar method in some cases.', 'smartview' ),
+                'type'      => 'checkbox'
             )
         ) ),
         // Modal Styles
