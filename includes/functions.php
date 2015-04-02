@@ -136,7 +136,7 @@ function smartview_check_sameorigin( $url = '' ) {
 /**
  * Add Menufication help if Menufication is installed
  *
- * @since       1.0.3
+ * @since       1.0.2
  * @param       array $settings The original settings array
  * @return      array $settings The modified settings array
  */
@@ -162,7 +162,7 @@ add_filter( 'smartview_settings_help', 'smartview_maybe_add_menufication_help' )
 /**
  * Help callback for Menufication plugin
  *
- * @since       1.0.3
+ * @since       1.0.2
  * @return      void
  */
 function smartview_menufication_help() {
@@ -179,7 +179,7 @@ add_action( 'smartview_menufication_help', 'smartview_menufication_help' );
 /**
  * Help callback for permalinks
  *
- * @since       1.0.3
+ * @since       1.0.2
  * @return      void
  */
 function smartview_permalinks_help() {
@@ -195,7 +195,7 @@ add_action( 'smartview_permalinks_help', 'smartview_permalinks_help' );
 /**
  * Flush permalinks
  *
- * @since       1.0.3
+ * @since       1.0.2
  * @return      void
  */
 function smartview_flush_permalinks() {
@@ -214,7 +214,7 @@ add_action( 'smartview_flush_permalinks', 'smartview_flush_permalinks' );
 /**
  * Display notice on permalinks flush
  *
- * @since       1.0.3
+ * @since       1.0.2
  * @return      void
  */
 function smartview_permalinks_notice() {
