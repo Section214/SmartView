@@ -278,8 +278,10 @@ if( ! class_exists( 'SmartView' ) ) {
             $html .= '</div>';
 
             echo $html;
-            
-            echo '<script type="text/javascript">document.write(\'<iframe class="smartbar-frame" src="' . hex2bin( $wp_query->query_vars['url'] ) . '" frameborder="0" noresize="noresize" height="\' + window.innerHeight + \'px" width="\' + window.innerWidth + \'px"></iframe>\');</script>';
+
+            $url = parse_url( hex2bin( $wp_query->query_vars['url'] ) );
+
+            echo '<script type="text/javascript">document.write(\'<iframe class="smartbar-frame" src="' . $url['scheme'] . '://' . $url['host'] . $url['path'] . '" frameborder="0" noresize="noresize" height="\' + window.innerHeight + \'px" width="\' + window.innerWidth + \'px">test</iframe>\');</script>';
 
             exit;
         }
