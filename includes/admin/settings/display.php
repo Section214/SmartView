@@ -48,7 +48,7 @@ function smartview_render_settings_page() {
                     do_settings_fields( 'smartview_settings_' . $active_tab, 'smartview_settings_' . $active_tab );
                     ?>
                 </table>
-                <?php if( isset( $_GET['tab'] ) && $_GET['tab'] !== 'help' ) { submit_button(); } ?>
+                <?php if( ! isset( $_GET['tab'] ) || $_GET['tab'] !== 'help' ) { submit_button(); } ?>
             </form>
         </div>
     </div>
