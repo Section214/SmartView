@@ -100,6 +100,7 @@ function smartview_check_sameorigin( $url = '' ) {
 
     $parsed_url = parse_url( $url );
     $actual_url = $parsed_url['scheme'] . '://' . $parsed_url['host'];
+    $actual_url = smartview_parse_url( $actual_url );
 
     if( $trans = get_transient( 'smartview_' . $parsed_url['host'] ) === false ) {
         $args = array(
@@ -130,6 +131,23 @@ function smartview_check_sameorigin( $url = '' ) {
     }            
 
     return $ret;
+}
+
+
+/**
+ * Parse URLs
+ *
+ * @since       1.0.3
+ * @param       string $url The URL to parse
+ * @return      string $url The parsed URL
+ */
+function smartview_parse_url( $url ) {
+    if( stristr( $url, 'http%3a' ) ) {
+        $url = stristr( $url, 'http%3a' );
+        $url = urldecode( $url );
+    }
+
+    return $url;
 }
 
 

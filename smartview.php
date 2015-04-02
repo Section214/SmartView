@@ -178,6 +178,8 @@ if( ! class_exists( 'SmartView' ) ) {
                                 } else {
                                     $link->class = 'smartview-error';
                                 }
+
+                                $link->href = smartview_parse_url( $link->href );
                             }
                         }
                     } else {
@@ -192,6 +194,8 @@ if( ! class_exists( 'SmartView' ) ) {
                             } else {
                                 $link->class = 'smartview';
                             }
+                            
+                            $link->href = smartview_parse_url( $link->href );
                         }
                     }
                 }
@@ -280,6 +284,7 @@ if( ! class_exists( 'SmartView' ) ) {
             echo $html;
 
             $url = hex2bin( $wp_query->query_vars['url'] );
+            $url = smartview_parse_url( $url );
 
             echo '<script type="text/javascript">document.write(\'<iframe class="smartbar-frame" src="' . $url . '" frameborder="0" noresize="noresize" height="\' + window.innerHeight + \'px" width="\' + window.innerWidth + \'px">test</iframe>\');</script>';
 
