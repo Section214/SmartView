@@ -168,7 +168,7 @@ if( ! class_exists( 'SmartView' ) ) {
                             $link->target = '_blank';
                         } else {
                             if( $smartbar ) {
-                                $link->href = $domain . '/smartview?url=' . $link->href;
+                                $link->href = $domain . '/smartview?url=' . bin2hex( $link->href );
                                 $link->target = '_self';
                             } else {
                                 if( isset( $link->class ) ) {
@@ -182,7 +182,7 @@ if( ! class_exists( 'SmartView' ) ) {
                         }
                     } else {
                         if( $smartbar ) {
-                            $link->href = $domain . '/smartview?url=' . $link->href;
+                            $link->href = $domain . '/smartview?url=' . bin2hex( $link->href );
                             $link->target = '_self';
                         } else {
                             if( isset( $link->class ) ) {
@@ -279,7 +279,7 @@ if( ! class_exists( 'SmartView' ) ) {
 
             echo $html;
             
-            echo '<script type="text/javascript">document.write(\'<iframe class="smartbar-frame" src="' . $wp_query->query_vars['url'] . '" frameborder="0" noresize="noresize" height="\' + window.innerHeight + \'px"></iframe>\');</script>';
+            echo '<script type="text/javascript">document.write(\'<iframe class="smartbar-frame" src="' . hex2bin( $wp_query->query_vars['url'] ) . '" frameborder="0" noresize="noresize" height="\' + window.innerHeight + \'px"></iframe>\');</script>';
 
             exit;
         }
