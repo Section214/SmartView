@@ -144,6 +144,12 @@ if( ! class_exists( 'SmartView' ) ) {
                 return $content;
             }
 
+            if( ! array_key_exists( 'excerpt', $apply_on ) ) {
+                if( ! is_single() ) {
+                    return $content;
+                }
+            }
+
             // Get html content
             $html = str_get_html( $content );
 

@@ -31,6 +31,8 @@ function smartview_get_types() {
         $types[$post_type->name] = $post_type->labels->name;
     }
 
+    $types['excerpt'] = __( 'Excerpts', 'smartview' );
+
     return $types;
 }
 
