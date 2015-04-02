@@ -42,9 +42,9 @@ html, body {
 }
 
 .smartbar-frame {
-    width: 100vw;
     display: block;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     border: 0;
     position: absolute;
     top: 54px;
