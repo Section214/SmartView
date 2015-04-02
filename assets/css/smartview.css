@@ -49,4 +49,5 @@ html, body {
     position: absolute;
     top: 54px;
     left: 0;
+    -webkit-overflow-scrolling: touch;
 }
