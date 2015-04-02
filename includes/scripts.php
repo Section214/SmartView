@@ -71,7 +71,7 @@ function smartview_scripts() {
         wp_enqueue_script( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/jquery.colorbox-min.js', array( 'jquery' ), '1.6.0' );
     }
 
-    wp_enqueue_script( 'smartview', SMARTVIEW_URL . 'assets/js/smartview' . $suffix . '.js', array(), SMARTVIEW_VER );
+    wp_enqueue_script( 'smartview', SMARTVIEW_URL . 'assets/js/smartview' . $suffix . '.js', array( 'jquery' ), SMARTVIEW_VER );
     wp_localize_script( 'smartview', 'smartview_vars', array(
         'modal_effect'  => smartview_get_option( 'modal_effect', 'none' ),
         'modal_speed'   => smartview_get_option( 'modal_speed', 350 ),
