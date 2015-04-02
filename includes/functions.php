@@ -98,16 +98,16 @@ function smartview_parse_title_tags( $content ) {
 function smartview_check_sameorigin( $url = '' ) {
     $ret = false;
 
-    $url = parse_url( $url );
-    $url = $url['scheme'] . '://' . $url['host'];
+    $parsed_url = parse_url( $url );
+    $actual_url = $parsed_url['scheme'] . '://' . $parsed_url['host'];
 
-    if( $trans = get_transient( 'smartview_' . $url['host'] ) === false ) {
+    if( $trans = get_transient( 'smartview_' . $parsed_url['host'] ) === false ) {
         $args = array(
             'timeout'   => 5,
             'sslverify' => false
         );
 
-        $response = wp_remote_get( $url, $args );
+        $response = wp_remote_get( $actual_url, $args );
         $response = wp_remote_retrieve_headers( $response );
 
         if( array_key_exists( 'x-frame-options', $response ) ) {
@@ -119,9 +119,9 @@ function smartview_check_sameorigin( $url = '' ) {
         }
 
         if( $ret ) {
-            set_transient( 'smartview_' . $url['host'], 'true', WEEK_IN_SECONDS );
+            set_transient( 'smartview_' . $parsed_url['host'], 'true', WEEK_IN_SECONDS );
         } else {
-            set_transient( 'smartview_' . $url['host'], 'false', WEEK_IN_SECONDS );
+            set_transient( 'smartview_' . $parsed_url['host'], 'false', WEEK_IN_SECONDS );
         }
     } else {
         if( $trans == 'true' ) {
