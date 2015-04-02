@@ -172,6 +172,7 @@ if( ! class_exists( 'SmartView' ) ) {
                         } else {
                             if( $smartbar ) {
                                 $link->href = $domain . '/smartview?url=' . $link->href;
+                                $link->target = '_self';
                             } else {
                                 if( isset( $link->class ) ) {
                                     if( ! strpos( $link->class, 'smartview-error' ) ) {
@@ -185,6 +186,7 @@ if( ! class_exists( 'SmartView' ) ) {
                     } else {
                         if( $smartbar ) {
                             $link->href = $domain . '/smartview?url=' . $link->href;
+                            $link->target = '_self';
                         } else {
                             if( isset( $link->class ) ) {
                                 if( ! strpos( $link->class, 'smartview' ) ) {
