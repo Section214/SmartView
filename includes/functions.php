@@ -131,3 +131,92 @@ function smartview_check_sameorigin( $url = '' ) {
 
     return $ret;
 }
+
+
+/**
+ * Add Menufication help if Menufication is installed
+ *
+ * @since       1.0.3
+ * @param       array $settings The original settings array
+ * @return      array $settings The modified settings array
+ */
+function smartview_maybe_add_menufication_help( $settings ) {
+    if( class_exists( 'Menufication' ) ) {
+        $new_settings = array(
+            array(
+                'id'        => 'menufication_help',
+                'name'      => __( 'Menufication', 'smartview' ),
+                'desc'      => '',
+                'type'      => 'hook'
+            )
+        );
+
+        $settings = array_merge( $settings, $new_settings );
+    }
+
+    return $settings;
+}
+add_filter( 'smartview_settings_help', 'smartview_maybe_add_menufication_help' );
+
+
+/**
+ * Help callback for Menufication plugin
+ *
+ * @since       1.0.3
+ * @return      void
+ */
+function smartview_menufication_help() {
+    $html  = '<p>' . __( 'The Menufication plugin is known to cause problems with certain mobile applications, including SmartView. This is because the developer didn\'t take other plugins into account and decided not to provide any hooks to allow us to remove it on pages that <em>shouldn\'t</em> have it active. As such, we provide a tweaked version of Menufication which <em>does</em> allow us to disable it where it doesn\'t belong! If you haven\'t already done so, please download the below plugin and replace your current copy of Menufication with it.', 'smartview' ) . '</p>';
+    $html .= '<p>' . sprintf( __( 'If the author of Menufication notifies you that there has been an update, and we have not yet provided a matching update for SmartView and our fork of Menufication, please notify us immediately by emailing %s, and DO NOT install the upgrade they provide!', 'smartview' ), '<a href="mailto:support@section214.com">support@section214.com</a>' ) . '</p>';
+    $html .= '<br />';
+    $html .= '<p><a href="' . SMARTVIEW_URL . 'assets/plugins/menufication.zip" class="button">' . __( 'Download Menufication', 'smartview' ) . '</a></p>';
+
+    echo $html;
+}
+add_action( 'smartview_menufication_help', 'smartview_menufication_help' );
+
+
+/**
+ * Help callback for permalinks
+ *
+ * @since       1.0.3
+ * @return      void
+ */
+function smartview_permalinks_help() {
+    $html  = '<p>' . __( 'If you are getting 404 errors on SmartBar enabled pages, you may need to flush the WordPress rewrite rules cache. Click the button below to do so now.', 'smartview' ) . '</p>';
+    $html .= '<br />';
+    $html .= '<p><a href="' . esc_url( wp_nonce_url( add_query_arg( array( 'smartview-action' => 'flush_permalinks' ) ), 'smartview-permalinks-nonce' ) ) . '" class="button">' . __( 'Flush Rewrite Rules', 'smartview' ) . '</a></p>';
+
+    echo $html;
+}
+add_action( 'smartview_permalinks_help', 'smartview_permalinks_help' );
+
+
+/**
+ * Flush permalinks
+ *
+ * @since       1.0.3
+ * @return      void
+ */
+function smartview_flush_permalinks() {
+    // Verify nonce
+    if( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], 'smartview-permalinks-nonce' ) ) {
+        return;
+    }
+
+    flush_rewrite_rules();
+
+    add_action( 'admin_notices', 'smartview_permalinks_notice' );
+}
+add_action( 'smartview_flush_permalinks', 'smartview_flush_permalinks' );
+
+
+/**
+ * Display notice on permalinks flush
+ *
+ * @since       1.0.3
+ * @return      void
+ */
+function smartview_permalinks_notice() {
+    echo '<div class="updated"><p>' . __( 'Rewrite rules flushed successfully.', 'smartview' ) . '</p></div>';
+}

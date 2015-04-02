@@ -24,6 +24,7 @@ function smartview_get_settings_tabs() {
     $tabs['general']    = __( 'General', 'smartview' );
     $tabs['modal']      = __( 'Modal Style', 'smartview' );
     $tabs['smartbar']   = __( 'SmartBar Style', 'smartview' );
+    $tabs['help']       = __( 'Help', 'smartview' );
     
     return apply_filters( 'smartview_settings_tabs', $tabs );
 }
@@ -197,6 +198,21 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Specify the color for the \'Back\' link.', 'smartview' ),
                 'type'      => 'color',
                 'std'       => '#000000'
+            )
+        ) ),
+        // Help
+        'help' => apply_filters( 'smartview_settings_help', array(
+            array(
+                'id'        => 'help_header',
+                'name'      => __( 'SmartView Help', 'smartview' ),
+                'desc'      => '',
+                'type'      => 'header'
+            ),
+            array(
+                'id'        => 'permalinks_help',
+                'name'      => __( 'Permalinks', 'smartview' ),
+                'desc'      => '',
+                'type'      => 'hook'
             )
         ) )
     );
