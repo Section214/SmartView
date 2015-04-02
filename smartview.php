@@ -112,9 +112,6 @@ if( ! class_exists( 'SmartView' ) ) {
             // Maybe add SmartView
             add_filter( 'the_content', array( $this, 'maybe_add_smartview' ), PHP_INT_MAX, 1 );
 
-            // Maybe hide admin bar
-            add_action( 'init', array( $this, 'maybe_hide_admin_bar' ) );
-
             // Add rewrite endpoint
             add_action( 'init', array( $this, 'add_endpoint' ) );
 
@@ -207,20 +204,6 @@ if( ! class_exists( 'SmartView' ) ) {
             $content = $html;
 
             return $content;
-        }
-
-
-        /**
-         * Maybe hide admin bar
-         *
-         * @access      public
-         * @since       1.0.0
-         * @return      void
-         */
-        public function maybe_hide_admin_bar() {
-            if( smartview_get_option( 'no_admin_bar', false ) ) {
-                add_filter( 'show_admin_bar', '__return_false' );
-            }
         }
 
 
