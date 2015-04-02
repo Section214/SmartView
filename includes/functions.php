@@ -114,11 +114,5 @@ function smartview_check_sameorigin( $url = '' ) {
         }
     }
 
-    if( array_key_exists( 'p3p', $response ) ) {
-        if( strtolower( $response['p3p'] ) == "cp='no p3p'" ) {
-            $ret = true;
-        }
-    }
-
     return $ret;
 }
