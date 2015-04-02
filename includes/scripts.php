@@ -66,10 +66,10 @@ function smartview_scripts() {
 
     if( isset( $wp_query->query_vars['smartview'] ) ) {
         wp_enqueue_style( 'smartview', SMARTVIEW_URL . 'assets/css/smartview' . $suffix . '.css', array(), SMARTVIEW_VER );
-    } else {
-        wp_enqueue_style( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/' . $modal_theme . '/colorbox.css', array(), '1.6.0' );
-        wp_enqueue_script( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/jquery.colorbox-min.js', array( 'jquery' ), '1.6.0' );
     }
+
+    wp_enqueue_style( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/' . $modal_theme . '/colorbox.css', array(), '1.6.0' );
+    wp_enqueue_script( 'smartview-colorbox', SMARTVIEW_URL . 'assets/js/colorbox/jquery.colorbox-min.js', array( 'jquery' ), '1.6.0' );
 
     wp_enqueue_script( 'smartview', SMARTVIEW_URL . 'assets/js/smartview' . $suffix . '.js', array( 'jquery' ), SMARTVIEW_VER );
     wp_localize_script( 'smartview', 'smartview_vars', array(
