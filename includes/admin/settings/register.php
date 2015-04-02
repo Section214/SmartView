@@ -171,17 +171,6 @@ function smartview_get_registered_settings() {
                 'type'      => 'header'
             ),
             array(
-                'id'        => 'smartbar_background_type',
-                'name'      => __( 'Background Type', 'smartview' ),
-                'desc'      => __( 'Specify the background type for the SmartBar.', 'smartview' ),
-                'type'      => 'select',
-                'options'   => array(
-                    'color'     => __( 'Color', 'smartview' ),
-                    'image'     => __( 'Image', 'smartview' )
-                ),
-                'std'       => 'color'
-            ),
-            array(
                 'id'        => 'smartbar_background_color',
                 'name'      => __( 'Background Color', 'smartview' ),
                 'desc'      => __( 'Specify the background color for the SmartBar.', 'smartview' ),
