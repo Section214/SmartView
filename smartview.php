@@ -142,7 +142,7 @@ if( ! class_exists( 'SmartView' ) ) {
             }
 
             if( ! array_key_exists( 'excerpt', $apply_on ) ) {
-                if( ! is_single() ) {
+                if( ! is_object( $post ) || empty( $post->ID ) ) {
                     return $content;
                 }
             }
