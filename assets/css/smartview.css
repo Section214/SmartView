@@ -51,3 +51,26 @@ html, body {
     left: 0;
     -webkit-overflow-scrolling: touch;
 }
+
+@media only screen and (max-device-width : 667px) {
+    .smartbar {
+        height: 108px;
+        line-height: 36px;
+    }
+
+    .smartbar-logo-frame, .smartbar-back-frame {
+        width: 100%;
+        float: none;
+        clear: both;
+        text-align: center;
+    }
+
+    .smartbar-logo {
+        margin-left: 0;
+    }
+
+    .smartbar-back-link {
+        text-align: center;
+        margin-right: 0;
+    }
+}
