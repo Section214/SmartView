@@ -1,7 +1,9 @@
 /* SmartBar styles
 -------------------------------------------------------------- */
 .smartbar {
+    position: fixed;
     height: 54px;
+    width: 100vw;
     line-height: 54px;
     z-index: 100;
     margin-bottom: 1px;
