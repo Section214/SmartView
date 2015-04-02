@@ -36,4 +36,9 @@ jQuery(document).ready(function ($) {
             opacity: Number(smartview_vars.modal_opacity),
         });
     }
+
+    $('.smartbar-back-link').click(function () {
+        parent.history.back();
+        return false;
+    });
 });

@@ -268,15 +268,22 @@ if( ! class_exists( 'SmartView' ) ) {
                 $styles[] = 'background-repeat: repeat;';
             }
 
-            $logo = '';
+            $html  = '<div class="smartbar" style="' . implode( ' ', $styles ) . '">';
+
+            // Logo
             if( $logo_url = smartview_get_option( 'smartbar_logo', SMARTVIEW_URL . 'assets/img/logo.png' ) ) {
-                $logo .= '<div class="smartbar-logo-frame">';
-                $logo .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo"></a>';
-                $logo .= '</div>';
+                $html .= '<div class="smartbar-logo-frame">';
+                $html .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo"></a>';
+                $html .= '</div>';
             }
 
-            $html  = '<div class="smartbar" style="' . implode( ' ', $styles ) . '">';
-            $html .= $logo;
+            // Back link
+            $html .= '<div class="smartbar-back-frame">';
+            $html .= '<span class="smartbar-back-link" style="color: ' . smartview_get_option( 'smartbar_back_color', '#ffffff' ) . '">';
+            $html .= smartview_get_option( 'smartbar_back_text', sprintf( __( 'Back to %s', 'smartview' ), get_bloginfo( 'name' ) ) );
+            $html .= '</span>';
+            $html .= '</div>';
+            
             $html .= '</div>';
 
             echo $html;

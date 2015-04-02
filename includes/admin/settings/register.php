@@ -201,6 +201,20 @@ function smartview_get_registered_settings() {
                 'type'      => 'upload',
                 'std'       => SMARTVIEW_URL . 'assets/img/logo.png'
             ),
+            array(
+                'id'        => 'smartbar_back_text',
+                'name'      => __( 'Back Link Text', 'smartview' ),
+                'desc'      => __( 'Specify the text for the \'Back\' link.', 'smartview' ),
+                'type'      => 'text',
+                'std'       => sprintf( __( 'Back to %s', 'smartview' ), get_bloginfo( 'name' ) )
+            ),
+            array(
+                'id'        => 'smartbar_back_color',
+                'name'      => __( 'Back Link Color', 'smartview' ),
+                'desc'      => __( 'Specify the color for the \'Back\' link.', 'smartview' ),
+                'type'      => 'color',
+                'std'       => '#000000'
+            )
         ) )
     );
 

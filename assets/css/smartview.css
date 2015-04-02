@@ -7,9 +7,26 @@
     margin-bottom: 1px;
 }
 
+.smartbar-logo-frame {
+    width: 45%;
+    float: left;
+}
+
 .smartbar-logo {
     max-height: 48px;
     margin-left: 6px;
+}
+
+.smartbar-back-frame {
+    width: 45%;
+    float: right;
+}
+
+.smartbar-back-link {
+    display: block;
+    cursor: pointer;
+    text-align: right;
+    margin-right: 12px;
 }
 
 
