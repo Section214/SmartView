@@ -44,4 +44,7 @@ html, body {
     display: block;
     overflow: auto;
     border: 0;
+    position: absolute;
+    top: 54px;
+    left: 0;
 }
