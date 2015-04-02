@@ -124,7 +124,7 @@ function smartview_check_sameorigin( $url = '' ) {
             set_transient( 'smartview_' . $url['host'], 'false', WEEK_IN_SECONDS );
         }
     } else {
-        if( $transe == 'true' ) {
+        if( $trans == 'true' ) {
             $ret = true;
         }
     }            
