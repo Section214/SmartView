@@ -65,7 +65,7 @@ if( ! class_exists( 'SmartView' ) ) {
          */
         private function setup_constants() {
             // Plugin version
-            define( 'SMARTVIEW_VER', '1.0.3' );
+            define( 'SMARTVIEW_VER', '1.0.3.1' );
 
             // Plugin path
             define( 'SMARTVIEW_DIR', plugin_dir_path( __FILE__ ) );
@@ -267,8 +267,10 @@ if( ! class_exists( 'SmartView' ) ) {
 
             // Logo
             if( $logo_url = smartview_get_option( 'smartbar_logo', SMARTVIEW_URL . 'assets/img/logo.png' ) ) {
+                $height = smartview_get_option( 'smartbar_logo_height', 33 ) . 'px';
+
                 $html .= '<div class="smartbar-logo-frame">';
-                $html .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo"></a>';
+                $html .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo" style="height: ' . $height . '" /></a>';
                 $html .= '</div>';
             }
 

@@ -15,8 +15,7 @@
 }
 
 .smartbar-logo {
-    max-height: 48px;
-    margin-left: 6px;
+    margin: auto 0 auto 6px;
 }
 
 .smartbar-back-frame {

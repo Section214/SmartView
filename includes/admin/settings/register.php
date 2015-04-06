@@ -186,6 +186,16 @@ function smartview_get_registered_settings() {
                 'std'       => SMARTVIEW_URL . 'assets/img/logo.png'
             ),
             array(
+                'id'        => 'smartbar_logo_height',
+                'name'      => __( 'Logo Height', 'smartview' ),
+                'desc'      => __( 'Specify the height of the logo in pixels. (Default: 33)', 'smartview' ),
+                'type'      => 'number',
+                'size'      => 'small',
+                'step'      => 1,
+                'min'       => 0,
+                'std'       => 33
+            ),
+            array(
                 'id'        => 'smartbar_back_text',
                 'name'      => __( 'Back Link Text', 'smartview' ),
                 'desc'      => __( 'Specify the text for the \'Back\' link.', 'smartview' ),
