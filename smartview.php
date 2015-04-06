@@ -3,7 +3,7 @@
  * Plugin Name:     SmartView
  * Plugin URI:      http://section214.com
  * Description:     Provides a simple, mobile-friendly solution for displaying external content without leaving a site
- * Version:         1.0.4
+ * Version:         1.0.5
  * Author:          Daniel J Griffiths
  * Author URI:      http://section214.com
  * Text Domain:     smartview
@@ -65,7 +65,7 @@ if( ! class_exists( 'SmartView' ) ) {
          */
         private function setup_constants() {
             // Plugin version
-            define( 'SMARTVIEW_VER', '1.0.4' );
+            define( 'SMARTVIEW_VER', '1.0.5' );
 
             // Plugin path
             define( 'SMARTVIEW_DIR', plugin_dir_path( __FILE__ ) );
