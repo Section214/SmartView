@@ -14,14 +14,14 @@ class Test_Settings extends WP_UnitTestCase {
     public function test_get_settings_tabs() {
         $this->assertArrayHasKey( 'general', smartview_get_settings_tabs() );
         $this->assertArrayHasKey( 'modal', smartview_get_settings_tabs() );
-        $this->assertArrayHasKey( 'smartview', smartview_get_settings_tabs() );
+        $this->assertArrayHasKey( 'smartbar', smartview_get_settings_tabs() );
         $this->assertArrayHasKey( 'help', smartview_get_settings_tabs() );
     }
 
     public function test_get_registered_settings() {
         $this->assertArrayHasKey( 'general', smartview_get_registered_settings() );
         $this->assertArrayHasKey( 'modal', smartview_get_registered_settings() );
-        $this->assertArrayHasKey( 'smartview', smartview_get_registered_settings() );
+        $this->assertArrayHasKey( 'smartbar', smartview_get_registered_settings() );
         $this->assertArrayHasKey( 'help', smartview_get_registered_settings() );
     }
 
