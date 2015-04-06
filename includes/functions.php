@@ -257,8 +257,10 @@ function smartview_get_fonts() {
     $fonts = wp_remote_retrieve_body( $fonts );
     $fonts = json_decode( $fonts );
 
-    foreach( $fonts->items as $font ) {
-        $font_list[$font->family] = $font->family;
+    if( is_object( $fonts ) && ! is_wp_error( $fonts ) ) {
+        foreach( $fonts->items as $font ) {
+            $font_list[$font->family] = $font->family;
+        }
     }
 
     return $font_list;
