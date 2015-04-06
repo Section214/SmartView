@@ -196,6 +196,16 @@ function smartview_get_registered_settings() {
                 'std'       => 33
             ),
             array(
+                'id'        => 'smartbar_logo_offset',
+                'name'      => __( 'Logo Offset', 'smartview' ),
+                'desc'      => __( 'Specify an optional vertical offset for the logo in pixels.', 'smartview' ),
+                'type'      => 'number',
+                'size'      => 'small',
+                'step'      => 1,
+                'min'       => 0,
+                'std'       => 10
+            ),
+            array(
                 'id'        => 'smartbar_back_text',
                 'name'      => __( 'Back Link Text', 'smartview' ),
                 'desc'      => __( 'Specify the text for the \'Back\' link.', 'smartview' ),

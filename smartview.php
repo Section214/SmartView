@@ -268,9 +268,10 @@ if( ! class_exists( 'SmartView' ) ) {
             // Logo
             if( $logo_url = smartview_get_option( 'smartbar_logo', SMARTVIEW_URL . 'assets/img/logo.png' ) ) {
                 $height = smartview_get_option( 'smartbar_logo_height', 33 ) . 'px';
+                $offset = smartview_get_option( 'smartbar_logo_offset', 0 ) . 'px';
 
                 $html .= '<div class="smartbar-logo-frame">';
-                $html .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo" style="height: ' . $height . '" /></a>';
+                $html .= '<a href="' . get_home_url() . '" class="smartbar-logo-link"><img src="' . $logo_url . '" class="smartbar-logo" style="height: ' . $height . '; margin-top: ' . $offset . '" /></a>';
                 $html .= '</div>';
             }
 
