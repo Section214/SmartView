@@ -238,3 +238,28 @@ add_action( 'smartview_flush_permalinks', 'smartview_flush_permalinks' );
 function smartview_permalinks_notice() {
     echo '<div class="updated"><p>' . __( 'Rewrite rules flushed successfully.', 'smartview' ) . '</p></div>';
 }
+
+
+/**
+ * Get an array of Google webfonts
+ *
+ * @since       1.0.4
+ * @return      array $font_list The list of fonts
+ */
+function smartview_get_fonts() {
+    $font_list = array();
+    $args = array(
+        'timeout'   => 5,
+        'sslverify' => true
+    );
+
+    $fonts = wp_remote_get( 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyC-XAq3uKVYjH-bvpOhYAtJh8nF0ZaVyqM', $args );
+    $fonts = wp_remote_retrieve_body( $fonts );
+    $fonts = json_decode( $fonts );
+
+    foreach( $fonts->items as $font ) {
+        $font_list[$font->family] = $font->family;
+    }
+
+    return $font_list;
+}

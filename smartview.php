@@ -275,8 +275,10 @@ if( ! class_exists( 'SmartView' ) ) {
             }
 
             // Back link
+            $font  = smartview_get_option( 'smartbar_back_font', 'Roboto' );
+
             $html .= '<div class="smartbar-back-frame">';
-            $html .= '<span class="smartbar-back-link" style="color: ' . smartview_get_option( 'smartbar_back_color', '#ffffff' ) . '">';
+            $html .= '<span class="smartbar-back-link" style="color: ' . smartview_get_option( 'smartbar_back_color', '#ffffff' ) . '; font-family: \'' . $font . '\'">';
             $html .= smartview_get_option( 'smartbar_back_text', sprintf( __( 'Back to %s', 'smartview' ), get_bloginfo( 'name' ) ) );
             $html .= '</span>';
             $html .= '</div>';

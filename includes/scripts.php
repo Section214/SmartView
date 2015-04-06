@@ -81,5 +81,10 @@ function smartview_scripts() {
         'modal_height'  => smartview_get_option( 'modal_height', '80%' ),
         'modal_error'   => smartview_get_option( 'modal_error', __( 'Unfortunately, an error occurred. Please try again.', 'smartview' ) ),
     ) );
+
+    // Google webfonts
+    $font = smartview_get_option( 'back_link_font', 'Roboto' );
+    $font = str_replace( ' ', '+', $font );
+    wp_enqueue_style( 'smartview-webfont', 'http://fonts.googleapis.com/css?family=' . $font );
 }
 add_action( 'wp_enqueue_scripts', 'smartview_scripts' );

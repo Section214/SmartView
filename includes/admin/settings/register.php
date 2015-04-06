@@ -208,6 +208,14 @@ function smartview_get_registered_settings() {
                 'desc'      => __( 'Specify the color for the \'Back\' link.', 'smartview' ),
                 'type'      => 'color',
                 'std'       => '#000000'
+            ),
+            array(
+                'id'        => 'smartbar_back_font',
+                'name'      => __( 'Back Link Font', 'smartview' ),
+                'desc'      => __( 'Specify the font for the \'Back\' link.', 'smartview' ),
+                'type'      => 'select',
+                'options'   => smartview_get_fonts(),
+                'std'       => 'Roboto'
             )
         ) ),
         // Help
