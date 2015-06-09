@@ -161,51 +161,53 @@ if( ! class_exists( 'SmartView' ) ) {
             }
 
             // Do the magic!
-            foreach( $html->find( 'a' ) as $link ) {
-                if( ! preg_match( '/^.*' . preg_quote( $domain, '/' ) . '.*/i', $link->href ) ) {
-                    if( smartview_check_sameorigin( $link->href ) ) {
-                        if( smartview_get_option( 'sameorigin_fallback', false ) ) {
-                            $link->target = '_blank';
+            if( is_object( $html ) ) {
+                foreach( $html->find( 'a' ) as $link ) {
+                    if( ! preg_match( '/^.*' . preg_quote( $domain, '/' ) . '.*/i', $link->href ) ) {
+                        if( smartview_check_sameorigin( $link->href ) ) {
+                            if( smartview_get_option( 'sameorigin_fallback', false ) ) {
+                                $link->target = '_blank';
+                            } else {
+                                if( $smartbar ) {
+                                    $link->href = $domain . '/smartview?url=' . bin2hex( $link->href );
+                                    $link->target = '_self';
+                                } else {
+                                    if( isset( $link->class ) ) {
+                                        if( ! strpos( $link->class, 'smartview-error' ) ) {
+                                            $link->class = $link->class . ' smartview-error';
+                                        }
+                                    } else {
+                                        $link->class = 'smartview-error';
+                                    }
+
+                                    $link->href = smartview_parse_url( $link->href );
+                                }
+                            }
                         } else {
                             if( $smartbar ) {
                                 $link->href = $domain . '/smartview?url=' . bin2hex( $link->href );
                                 $link->target = '_self';
                             } else {
                                 if( isset( $link->class ) ) {
-                                    if( ! strpos( $link->class, 'smartview-error' ) ) {
-                                        $link->class = $link->class . ' smartview-error';
+                                    if( ! strpos( $link->class, 'smartview' ) ) {
+                                        $link->class = $link->class . ' smartview';
                                     }
                                 } else {
-                                    $link->class = 'smartview-error';
+                                    $link->class = 'smartview';
                                 }
-
+                            
                                 $link->href = smartview_parse_url( $link->href );
                             }
                         }
-                    } else {
-                        if( $smartbar ) {
-                            $link->href = $domain . '/smartview?url=' . bin2hex( $link->href );
-                            $link->target = '_self';
-                        } else {
-                            if( isset( $link->class ) ) {
-                                if( ! strpos( $link->class, 'smartview' ) ) {
-                                    $link->class = $link->class . ' smartview';
-                                }
-                            } else {
-                                $link->class = 'smartview';
-                            }
-                            
-                            $link->href = smartview_parse_url( $link->href );
-                        }
                     }
+
+                    // Add nofollow
+                    $link->rel = 'nofollow';
                 }
 
-                // Add nofollow
-                $link->rel = 'nofollow';
+                // Reset the content variable
+                $content = $html;
             }
-
-            // Reset the content variable
-            $content = $html;
 
             return $content;
         }
