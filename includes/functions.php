@@ -102,7 +102,7 @@ function smartview_check_sameorigin( $url = '' ) {
     $actual_url = $parsed_url['scheme'] . '://' . $parsed_url['host'];
     $actual_url = smartview_parse_url( $actual_url );
 
-    if( $trans = get_transient( 'smartview_' . $parsed_url['host'] ) === false ) {
+    if( $trans = get_transient( 'sv_' . $parsed_url['host'] ) === false ) {
         $args = array(
             'timeout'   => 5,
             'sslverify' => false
@@ -119,10 +119,20 @@ function smartview_check_sameorigin( $url = '' ) {
             }
         }
 
+        if( array_key_exists( 'x-xss-protection', $response ) ) {
+            if( stristr( $response['x-xss-protection'], 'block' ) ) {
+                $ret = true;
+            }
+        }
+
+        if( array_key_exists( 'p3p', $response ) ) {
+            $ret = true;
+        }
+
         if( $ret ) {
-            set_transient( 'smartview_' . $parsed_url['host'], 'true', WEEK_IN_SECONDS );
+            set_transient( 'sv_' . $parsed_url['host'], 'true', WEEK_IN_SECONDS );
         } else {
-            set_transient( 'smartview_' . $parsed_url['host'], 'false', WEEK_IN_SECONDS );
+            set_transient( 'sv_' . $parsed_url['host'], 'false', WEEK_IN_SECONDS );
         }
     } else {
         if( $trans == 'true' ) {
