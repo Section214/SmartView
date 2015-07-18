@@ -98,6 +98,10 @@ if( ! class_exists( 'SmartView' ) ) {
                 require_once SMARTVIEW_DIR . 'includes/admin/pages.php';
                 require_once SMARTVIEW_DIR . 'includes/admin/settings/display.php';
             }
+
+            if( ! class_exists( 'S214_Plugin_Updater' ) ) {
+                require_once SMARTVIEW_DIR . 'includes/S214_Plugin_Updater.php';
+            }
         }
 
 
@@ -120,6 +124,13 @@ if( ! class_exists( 'SmartView' ) ) {
 
             // Handle redirect
             add_action( 'wp_head', array( $this, 'redirect' ) );
+
+            $update = new S214_Plugin_Updater( 'https://section214.com', __FILE__, array(
+                'version'   => SMARTVIEW_VER,
+                'license'   => '0678abe26ca8ea9f984feb598c8e1bc6',
+                'item_id'   => 3282,
+                'author'    => 'Daniel J Griffiths'
+            ) );
         }
 
 
