@@ -99,8 +99,8 @@ if( ! class_exists( 'SmartView' ) ) {
                 require_once SMARTVIEW_DIR . 'includes/admin/settings/display.php';
             }
 
-            if( ! class_exists( 'S214_Plugin_Updater' ) ) {
-                require_once SMARTVIEW_DIR . 'includes/S214_Plugin_Updater.php';
+            if( ! class_exists( 'WP_GitHub_Updater' ) ) {
+                require_once SMARTVIEW_DIR . 'includes/libraries/updater/updater.php';
             }
         }
 
@@ -125,12 +125,20 @@ if( ! class_exists( 'SmartView' ) ) {
             // Handle redirect
             add_action( 'wp_head', array( $this, 'redirect' ) );
 
-            $update = new S214_Plugin_Updater( 'https://section214.com', __FILE__, array(
-                'version'   => SMARTVIEW_VER,
-                'license'   => '0678abe26ca8ea9f984feb598c8e1bc6',
-                'item_id'   => 3282,
-                'author'    => 'Daniel J Griffiths'
-            ) );
+            if( is_admin() ) {
+                $update = new WP_GitHub_Updater( array(
+                    'slug'                  => plugin_basename( __FILE__ ),
+                    'proper_folder_name'    => 'smartview',
+                    'api_url'               => 'https://api.github.com/repos/Section214/SmartView',
+                    'raw_url'               => 'https://raw.github.com/Section214/SmartView/master',
+                    'github_url'            => 'https://github.com/Section214/SmartView',
+                    'zip_url'               => 'https://github.com/Section214/SmartView/zipball/master',
+                    'sslverify'             => true,
+                    'requires'              => '3.0',
+                    'tested'                => '4.2.2',
+                    'readme'                => 'README.md'
+                ) );
+            }
         }
 
 
