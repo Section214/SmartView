@@ -3,7 +3,7 @@
  * Plugin Name:     SmartView
  * Plugin URI:      http://section214.com
  * Description:     Provides a simple, mobile-friendly solution for displaying external content without leaving a site
- * Version:         2.0.0
+ * Version:         2.0.1
  * Author:          Daniel J Griffiths
  * Author URI:      http://section214.com
  * Text Domain:     smartview
